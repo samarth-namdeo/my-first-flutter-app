@@ -1,4 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:untitled/pages/home_page.dart';
+import 'package:untitled/pages/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +15,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home:  Material(
-        child: Center(
-          child: Container(
-            child: Text("Aaja nachle nachle mere naal tu nachle!")
-          ),
-        ),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+        fontFamily: GoogleFonts.lato().fontFamily,
+        primaryTextTheme: GoogleFonts.latoTextTheme()
       ),
+      // home:HomePage(),
+      initialRoute: "/login",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/login": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+      },
     );
   }
 }
